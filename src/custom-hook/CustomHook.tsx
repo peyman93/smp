@@ -1,10 +1,15 @@
 import { usePost } from "./usePost";
+import { twMerge } from "tailwind-merge";
 
 const CustomHook = () => {
   const { posts, isLoading, error, refetch } = usePost();
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className={twMerge("rounded-lg bg-gray-300 px-4 py-2 shadow-lg")}>
+        Loading...
+      </div>
+    );
   }
 
   if (error) {
